@@ -2,6 +2,11 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.footer {
+  display: block;
+  margin: auto;
+  font-size: 10px;
+}
 
 .footer .icon-link {
     font-size: 25px;
@@ -28,9 +33,6 @@ body {
 }
 
 
-.publication-title {
-}
-
 .publication-banner {
   max-height: parent;
 
@@ -49,6 +51,7 @@ body {
 
 .publication-title {
     font-family: 'Google Sans', sans-serif;
+    font-size: 42px;
 }
 
 .publication-authors {
@@ -133,5 +136,6 @@ body {
   font-size: smaller;
 }
 
-
-
+.overview {
+  width: 70%;
+}
