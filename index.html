@@ -6,7 +6,7 @@
   <!-- Replace the content tag with appropriate information -->
   <meta name="description" content="DESCRIPTION META TAG">
   <meta property="og:title" content="Watermark Stealing in Large Language Models"/>
-  <meta property="og:description" content="Prominent LLM watermarks can be stolen for under $50, enabling scrubbing and spoofing attacks at scale."/>
+  <meta property="og:description" content="Prominent LLM watermarks can be stolen for under $50, enabling spoofing and scrubbing attacks at scale."/>
   <meta property="og:url" content="https://watermark-stealing.org"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
   <meta property="og:image" content="static/images/banner-og.png" />
@@ -15,7 +15,7 @@
 
 
   <meta name="twitter:title" content="Watermark Stealing in Large Language Models">
-  <meta name="twitter:description" content="Prominent LLM watermarks can be stolen for under $50, enabling scrubbing and spoofing attacks at scale.">
+  <meta name="twitter:description" content="Prominent LLM watermarks can be stolen for under $50, enabling spoofing and scrubbing attacks at scale.">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
   <meta name="twitter:image" content="static/images/banner-twitter.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -24,7 +24,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Watermark Stealing in Large Language Models</title>
+  <title>Watermark Stealing</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico?v=2">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -47,116 +47,199 @@
 <body>
 
 
-<!-- uc -->
-<section class="section hero is-warning">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <div class="content has-text-centered">
-          <p>
-            &#128679; The site is still under construction. <br> 
-            Check back soon for examples, code, and more information.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- uc -->
 
 
-
-  <section class="hero">
+  <section class="hero is-purple">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h2 class="title publication-title">Watermark Stealing in Large Language Models <img src="static/images/logo.png"></h2>
+            <h2 class="title publication-title"><img class="logo" src="static/images/logo.png"> Watermark Stealing in Large Language Models</h2>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
                 <a href="https://www.sri.inf.ethz.ch/people/nikola" target="_blank">Nikola Jovanović</a>,</span>
-                <span class="author-block">
+              <span class="author-block">
                   <a href="https://www.sri.inf.ethz.ch/people/robin" target="_blank">Robin Staab</a>,</span>
-                  <span class="author-block">
-                    <a href="https://www.sri.inf.ethz.ch/people/martin" target="_blank">Martin Vechev</a>
+              <span class="author-block">
+                  <a href="https://www.sri.inf.ethz.ch/people/martin" target="_blank">Martin Vechev</a></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">ETH Zurich</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://files.sri.inf.ethz.ch/website/papers/jovanovic2024watermarkstealing.pdf" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
                   </span>
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">ETH Zurich</span>
-                  </div>
-
-                  <!--
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
+                  <span>Paper</span>
                   </a>
                 </span>
+        
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  <a href="https://arxiv.org/abs/2402.19361" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
-                </a>
-              </span>
-                -->
-            </div>
-          </div>
+                  </a>
+                </span>
+              
+                <span class="link-block">
+                  <a href="https://github.com/eth-sri/watermark-stealing" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://twitter.com/ni_jovanovic" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                  <span>Summary</span>
+                  </a>
+                </span>
+            </div> <!-- publications links -->
+          </div> <!-- column for publications links -->
+
+
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- TLDR -->
-<section class="section is-small">
+
+
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered tldr">
+            <b>TL;DR</b>:
+            Prominent LLM watermarks can be stolen for under $50, enabling spoofing and scrubbing attacks at scale.
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<!-- Paper overview -->
+<section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <div class="content has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Stolen?</h2>
+        <img class="figure" src="static/images/stealing.png" alt="Stealing" class="">
+        <div class="content has-text-justified">
+          <br>
           <p>
-           <b style="color: red;">TL;DR</b>:
-           Prominent LLM watermarks can be stolen for under $50, enabling scrubbing and spoofing attacks at scale.
+            <ul>
+            <li> This is placeholder text.
+            <li> LLM watermarking has attracted attention as a promising way to detect AI-generated content, with some works suggesting that current schemes may already be fit for deployment.
+            <li> In this work we dispute this claim, identifying <b>watermark stealing</b> (WS) as a fundamental vulnerability of these schemes.
+            <li>We show that querying the API of the watermarked LLM to approximately reverse-engineer a watermark enables practical <b>spoofing attacks</b>, as suggested in prior work, but also greatly boosts <b>scrubbing attacks</b>, which was previously unnoticed.
+            <li>We are the first to propose an automated WS algorithm and use it in the first comprehensive study of spoofing and scrubbing in realistic settings.
+          </ul>
           </p>
         </div>
-        <img class="overview" src="static/images/overview.png" alt="Overview" class="">
       </div>
     </div>
   </div>
 </section>
-<!-- TLDR -->
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Spoofing attacks?</h2>
+          <img class="figure" src="static/images/spoofing.png" alt="Spoofing" class="">
+          <div class="content has-text-centered has-text-justified">
+          <br>
+          <p>
+            <ul>
+            <li> This is placeholder text.
+            <li> LLM watermarking has attracted attention as a promising way to detect AI-generated content, with some works suggesting that current schemes may already be fit for deployment.
+            <li> In this work we dispute this claim, identifying <b>watermark stealing</b> (WS) as a fundamental vulnerability of these schemes.
+            <li>We show that querying the API of the watermarked LLM to approximately reverse-engineer a watermark enables practical <b>spoofing attacks</b>, as suggested in prior work, but also greatly boosts <b>scrubbing attacks</b>, which was previously unnoticed.
+            <li>We are the first to propose an automated WS algorithm and use it in the first comprehensive study of spoofing and scrubbing in realistic settings.
+          </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Scrubbing attacks?</h2>
+          <img class="figure" src="static/images/scrubbing.png" alt="Scrubbing" class="">
+          <div class="content has-text-centered has-text-justified">
+          <br>
+          <p>
+            LLM watermarking has attracted attention as a promising way to detect AI-generated content, with some works suggesting that current schemes may already be fit for deployment.
+            In this work we dispute this claim, identifying <b>watermark stealing</b> (WS) as a fundamental vulnerability of these schemes.
+            We show that querying the API of the watermarked LLM to approximately reverse-engineer a watermark enables practical <b>spoofing attacks</b>, as suggested in prior work, but also greatly boosts <b>scrubbing attacks</b>, which was previously unnoticed.
+            We are the first to propose an automated WS algorithm and use it in the first comprehensive study of spoofing and scrubbing in realistic settings.
+            We show that for <b>under $50 an attacker can both spoof and scrub state-of-the-art schemes</b> previously considered safe, with average success rate of over 80%.
+            Our findings challenge common beliefs about LLM watermarking, stressing the need for more robust schemes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Examples</h2>
+          <div class="content has-text-centered has-text-justified">
+          <br>
+          <p>
+            Use the toggle to toggle the detector view. The detector will show the watermark of the LLM and the confidence of the detection.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">What now?</h2>
+          <div class="content has-text-centered has-text-justified">
+          <br>
+          <p>
+            Use the toggle to toggle the detector view. The detector will show the watermark of the LLM and the confidence of the detection.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper overview -->
 
 
-
-<!-- Paper abstract -->
+<!--
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -175,24 +258,21 @@
       </div>
     </div>
   </div>
-</section>
-<!-- End paper abstract -->
+</section> -->
 
-<!--BibTex citation
-  <section class="section" id="BibTeX">
+<section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
+      <h2 class="title">Cite our work:</h2>
       <pre><code>@article{jovanovic2024watermarkstealing,
   title = {Watermark Stealing in Large Language Models},
   author = {Jovanović, Nikola and Staab, Robin and Vechev, Martin},
   year = {2024},
-  eprint={todo},
+  eprint={2402.19361},
   archivePrefix={arXiv},
   primaryClass={cs.LG}
 }</code></pre>
     </div>
 </section>
--->
 
 
   <footer class="footer">
