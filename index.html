@@ -6,7 +6,7 @@
   <!-- Replace the content tag with appropriate information -->
   <meta name="description" content="DESCRIPTION META TAG">
   <meta property="og:title" content="Watermark Stealing in Large Language Models"/>
-  <meta property="og:description" content="Prominent LLM watermarks can be stolen for under $50, enabling spoofing and scrubbing attacks at scale."/>
+  <meta property="og:description" content="Prominent LLM watermarks can be stolen for under $50, enabling realistic spoofing and scrubbing attacks at scale."/>
   <meta property="og:url" content="https://watermark-stealing.org"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
   <meta property="og:image" content="static/images/banner-og.png" />
@@ -15,7 +15,7 @@
 
 
   <meta name="twitter:title" content="Watermark Stealing in Large Language Models">
-  <meta name="twitter:description" content="Prominent LLM watermarks can be stolen for under $50, enabling spoofing and scrubbing attacks at scale.">
+  <meta name="twitter:description" content="Prominent LLM watermarks can be stolen for under $50, enabling realistic spoofing and scrubbing attacks at scale.">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
   <meta name="twitter:image" content="static/images/banner-twitter.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -66,7 +66,7 @@
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block">ETH Zurich</span>
+              <span class="author-block">SRI Lab @ ETH Zurich</span>
             </div>
 
             <div class="column has-text-centered">
@@ -128,7 +128,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered tldr">
             <b>TL;DR</b>:
-            Prominent LLM watermarks can be stolen for under $50, enabling spoofing and scrubbing attacks at scale.
+            Prominent LLM watermarks can be stolen for under $50, enabling realistic spoofing and scrubbing attacks at scale.
       </div>
     </div>
   </div>
@@ -141,17 +141,15 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Stolen?</h2>
-        <img class="figure" src="static/images/stealing.png" alt="Stealing" class="">
+        <h2 class="title is-3">What is watermark stealing?</h2>
+        <img class="figure-stealing" src="static/images/stealing.png" alt="Stealing" class="">
         <div class="content has-text-justified">
           <br>
           <p>
             <ul>
-            <li> This is placeholder text.
-            <li> LLM watermarking has attracted attention as a promising way to detect AI-generated content, with some works suggesting that current schemes may already be fit for deployment.
-            <li> In this work we dispute this claim, identifying <b>watermark stealing</b> (WS) as a fundamental vulnerability of these schemes.
-            <li>We show that querying the API of the watermarked LLM to approximately reverse-engineer a watermark enables practical <b>spoofing attacks</b>, as suggested in prior work, but also greatly boosts <b>scrubbing attacks</b>, which was previously unnoticed.
-            <li>We are the first to propose an automated WS algorithm and use it in the first comprehensive study of spoofing and scrubbing in realistic settings.
+            <li> The most promising line of LLM watermarking schemes (<img class="intext" src="static/images/intext/water.png">) works by altering the outputs of the LLM based on unique <i>watermark rules</i>. These rules are determined by the secret key <img class="intext" src="static/images/intext/xi.png"> known only to the server. Without secret key knowledge, the watermarked text looks unremarkable, but with it, the server can detect the unusually high usage of so-called <span class="green">green tokens</span>, mathematically proving that a piece of text was watermarked. Recent work posits that these schemes may be ready for deployment, but we provide evidence for the opposite.
+            <li> We show that a malicious attacker (<img class="intext" src="static/images/intext/devil.png">) with only API access to the watermarked model, and a budget of under $50 in ChatGPT API costs, can use benign queries to build an approximate model (<img class="intext" src="static/images/intext/knowledge.png">) of the secret watermark rules used by the server. The details of our automated stealing algorithm are thoroughly laid out in <a href="https://files.sri.inf.ethz.ch/website/papers/jovanovic2024watermarkstealing.pdf">our paper</a>.
+            <li> After paying this one-time cost the attacker effectively reverse-engineered the watermark, and can now mount arbitrarily many realistic <span class="devilish">spoofing and scrubbing attacks</span> with no manual effort, which destroys the practical value of the watermark.
           </ul>
           </p>
         </div>
@@ -164,17 +162,16 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Spoofing attacks?</h2>
-          <img class="figure" src="static/images/spoofing.png" alt="Spoofing" class="">
+        <h2 class="title is-3">What are <span class="devilish">spoofing attacks</span>?</h2>
+          <img class="figure-spoofing" src="static/images/spoofing.png" alt="Spoofing" class="">
           <div class="content has-text-centered has-text-justified">
           <br>
           <p>
-            <ul>
-            <li> This is placeholder text.
-            <li> LLM watermarking has attracted attention as a promising way to detect AI-generated content, with some works suggesting that current schemes may already be fit for deployment.
-            <li> In this work we dispute this claim, identifying <b>watermark stealing</b> (WS) as a fundamental vulnerability of these schemes.
-            <li>We show that querying the API of the watermarked LLM to approximately reverse-engineer a watermark enables practical <b>spoofing attacks</b>, as suggested in prior work, but also greatly boosts <b>scrubbing attacks</b>, which was previously unnoticed.
-            <li>We are the first to propose an automated WS algorithm and use it in the first comprehensive study of spoofing and scrubbing in realistic settings.
+          <ul>
+            <li> In a realistic <span class="devilish">spoofing attack</span> the attacker generates high-quality text on arbitrary topics, which is confidently detected as <span class="green">watermarked</span> by the detector. This should be impossible for parties that do not know the secret key.
+            <li> A <span class="devilish">spoofing attack</span> applied at scale discredits the watermark, as the server is unable to distinguish between truly watermarked and spoofed texts. Further, releasing harmful/toxic texts that are falsely attributed to a specific LLM provider at scale can lead to severe reputational damage.
+            <li> We demonstrate reliable spoofing of a state-of-the-art scheme KGW2-SelfHash, previously thought to be safe. Our attacker combines the previously built approximate model of watermark rules (<img class="intext" src="static/images/intext/knowledge_full.png">) with an open-source LLM, to produce high-quality texts that are detected as <span class="green">watermarked</span> with <b>over 80% success rate</b>. This works equally well when producing harmful texts, even when the original model is well aligned to refuse any harmful prompts.
+            <li> We show some examples below, and in our <a style="color: #3273dc;" href="https://files.sri.inf.ethz.ch/website/papers/jovanovic2024watermarkstealing.pdf">rigorous evaluation</a> demonstrate similar success across several other schemes, study how our attack scales with query cost, and show success in the setting where the attacker paraphrases existing (<span class="red">non-watermarked</span>) text.
           </ul>
           </p>
         </div>
@@ -187,17 +184,17 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Scrubbing attacks?</h2>
-          <img class="figure" src="static/images/scrubbing.png" alt="Scrubbing" class="">
+        <h2 class="title is-3">What are <span class="devilish">scrubbing attacks</span>?</h2>
+          <img class="figure-scrubbing" src="static/images/scrubbing.png" alt="Scrubbing" class="">
           <div class="content has-text-centered has-text-justified">
           <br>
           <p>
-            LLM watermarking has attracted attention as a promising way to detect AI-generated content, with some works suggesting that current schemes may already be fit for deployment.
-            In this work we dispute this claim, identifying <b>watermark stealing</b> (WS) as a fundamental vulnerability of these schemes.
-            We show that querying the API of the watermarked LLM to approximately reverse-engineer a watermark enables practical <b>spoofing attacks</b>, as suggested in prior work, but also greatly boosts <b>scrubbing attacks</b>, which was previously unnoticed.
-            We are the first to propose an automated WS algorithm and use it in the first comprehensive study of spoofing and scrubbing in realistic settings.
-            We show that for <b>under $50 an attacker can both spoof and scrub state-of-the-art schemes</b> previously considered safe, with average success rate of over 80%.
-            Our findings challenge common beliefs about LLM watermarking, stressing the need for more robust schemes.
+          <ul>
+            <li> In a <span class="devilish">scrubbing attack</span> the attacker aims to remove the watermark, i.e. tweak the <span class="green">watermarked</span> response obtained from the server such that the resulting text is <span class="red">non-watermarked</span>. If scrubbing is possible, the misuse of powerful LLMs can be concealed, making it impossible to detect malicious use cases such as plagiarism or automated spamming and disinformation campaigns.
+            <li> Researchers have studied the threat of <span class="devilish">scrubbing attacks</span> before, concluding that current state-of-the-art schemes are robust to this threat for sufficiently long texts. 
+            <li> We challenge that conclusion. Our watermark stealing attacker can apply its partial knowledge of the watermark rules (<img class="intext" src="static/images/intext/knowledge_full.png">) to significantly boost the success rate of scrubbing on long texts with no need for additional queries to the server. Notably, we boost scrubbing success <b>from 1% to 85%</b> for the KGW2-SelfHash scheme. Similar results are obtained for several other schemes, as we show in our experimental evaluation in <a style="color: #3273dc;" href="https://files.sri.inf.ethz.ch/website/papers/jovanovic2024watermarkstealing.pdf">the paper</a>. Below, we also provide several examples.
+            <li> Our results challenge the common belief that robustness to <span class="devilish">spoofing attacks</span> and <span class="devilish">scrubbing attacks</span> are at odds for current schemes. On the contrary, we demonstrate that any vulnerability to watermark stealing enables <span class="devilish">both attacks</span> at levels much higher than previously thought.
+          </ul>
           </p>
         </div>
       </div>
@@ -206,6 +203,25 @@
 </section>
 
 <section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">What does this mean for LLM watermarking?</h2>
+          <div class="content has-text-centered has-text-justified">
+          <br>
+          <p>
+            <ul>
+            <li><img class="intext-big" src="static/images/intext/stop.png"> <b>Current watermarking schemes are not ready for deployment.</b> The robustness to adversarial actors was overestimated in prior work, leading to a premature conclusion about the readiness of LLM watermarking for deployment. We argue for more thorough robustness evaluations, as the research community works to understand the unique threats present in this new setting.
+            <li><img class="intext-big" src="static/images/intext/go.png"> <b>LLM watermarking remains promising, but more work is needed.</b> Our results do not imply that watermarking is a lost cause. In fact, we believe the watermarking of generative models to still be the most promising avenue towards reliable detection of AI-generated content. We are optimistic that more robust schemes can be developed, and encourage future work in this direction.
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -221,21 +237,6 @@
   </div>
 </section>
 
-<section class="section hero">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">What now?</h2>
-          <div class="content has-text-centered has-text-justified">
-          <br>
-          <p>
-            Use the toggle to toggle the detector view. The detector will show the watermark of the LLM and the confidence of the detection.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <!-- End paper overview -->
 
 

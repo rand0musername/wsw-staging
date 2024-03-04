@@ -148,10 +148,37 @@ body {
   font-size: smaller;
 }
 
-.figure {
-  width: 70%;
+.figure-stealing {
+  width: 75%;
+}
+.figure-spoofing {
+  width: 80%;
+}
+.figure-scrubbing {
+  width: 90%;
 }
 
 .tldr {
   font-size: 2rem;
+}
+
+.intext {
+  height: 1.1em;
+}
+
+.intext-big {
+  height: 1.3em;
+}
+
+.green {
+  color: #007f00;
+}
+
+.red {
+  color: #983131;
+}
+
+.devilish {
+  color: #aa8dd8;
+  font-weight: bold;
 }
