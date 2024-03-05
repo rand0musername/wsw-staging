@@ -211,21 +211,27 @@ button.active {
 
 .chat-container {
   width: 90%;
-  margin: 20px auto;
+  margin-top: 20px;
   background-color: #fefefe;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.chat-container.prompt {
+.chat-container.left {
+  margin-left: 5px;
   margin-right: auto;
 }
 
+.chat-container.right {
+  margin-right: 5px;
+  margin-left: auto;
+}
+
 .chat-header {
-  background-color: #4b4b4b;
+  background-color: #111;
   color: #fff;
-  padding: 10px;
+  padding: 10px 10px 10px 20px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -234,8 +240,11 @@ button.active {
   padding: 20px;
   font-size: 14px;
   line-height: 1.6;
+  background-color: #fdfdfd;
   color: #333;
   font-family: 'Courier', sans-serif;
+  overflow-y: scroll; 
+  max-height: 350px;
 }
 
 .chat-detector {
@@ -247,7 +256,7 @@ button.active {
 }
 
 .emoji-label {
-  height: 1.1em;
+  height: 1.2em;
   margin-bottom: -0.2em;
 }
 
@@ -275,7 +284,7 @@ button.active {
   color: #000000;
 }
 .chat-black2.active {
-  color: #777777;
+  color: #555555;
 }
 
 .chat-detector {
@@ -285,6 +294,10 @@ button.active {
 .chat-detector.active {
   display: block;
   font-family: "Didact Gothic", sans-serif;
-  font-weight: 400;
+  font-weight: bold;
   font-style: normal;
+}
+
+.footer {
+  padding: 3rem 1.5rem 3rem;
 }
