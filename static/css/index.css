@@ -23,6 +23,7 @@ body {
   display: block;
   margin: auto;
   font-size: 10px;
+  padding: 3rem 1.5rem 3rem;
 }
 
 .footer .icon-link {
@@ -174,10 +175,12 @@ body {
 
 .green {
   color: #007f00;
+  font-weight: bold;
 }
 
 .red {
   color: #983131;
+  font-weight: bold;
 }
 
 .devilish {
@@ -240,9 +243,9 @@ button.active {
   padding: 20px;
   font-size: 14px;
   line-height: 1.6;
-  background-color: #fdfdfd;
+  background-color: #fbfbfb;
   color: #333;
-  font-family: 'Courier', sans-serif;
+  font-family: 'Courier', sans-serif, monospace;
   overflow-y: scroll; 
   max-height: 350px;
 }
@@ -298,6 +301,9 @@ button.active {
   font-style: normal;
 }
 
-.footer {
-  padding: 3rem 1.5rem 3rem;
+#BibTeX {
+  background: #fbfbfb;
+  font-family:'Courier New', Courier, monospace;
+  border: 1px solid #ddd;
+
 }

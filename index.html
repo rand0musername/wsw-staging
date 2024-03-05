@@ -157,8 +157,8 @@
           <br>
           <p>
             <ul>
-            <li> The most promising line of LLM watermarking schemes (<img class="intext" src="static/images/intext/water.png">) works by altering the outputs of the LLM based on unique <i>watermark rules</i>. These rules are determined by the secret key <img class="intext" src="static/images/intext/xi.png"> known only to the server. Without secret key knowledge, the watermarked text looks unremarkable, but with it, the server can detect the unusually high usage of so-called <span class="green">green tokens</span>, mathematically proving that a piece of text was watermarked. Recent work posits that these schemes may be ready for deployment, but we provide evidence for the opposite.
-            <li> We show that a malicious attacker (<img class="intext" src="static/images/intext/devil.png">) with only API access to the watermarked model, and a budget of under $50 in ChatGPT API costs, can use benign queries to build an approximate model (<img class="intext" src="static/images/intext/knowledge.png">) of the secret watermark rules used by the server. The details of our automated stealing algorithm are thoroughly laid out in <a href="https://files.sri.inf.ethz.ch/website/papers/jovanovic2024watermarkstealing.pdf">our paper</a>.
+            <li> The most promising line of LLM watermarking schemes (<img class="intext" src="static/images/intext/water.png">) works by altering the generation process of the LLM based on unique <i>watermark rules</i>, determined by the secret key <img class="intext" src="static/images/intext/xi.png"> known only to the server. Without secret key knowledge, the watermarked text looks unremarkable, but with it, the server can detect the unusually high usage of so-called <span class="green">green tokens</span>, mathematically proving that a piece of text was watermarked. Recent work posits that current schemes may be ready for deployment, but we provide evidence for the opposite.
+            <li> We show that a malicious attacker (<img class="intext" src="static/images/intext/devil.png">) with only API access to the watermarked model, and a budget of under $50 in ChatGPT API costs, can use benign queries to build an approximate model of the secret watermark rules used by the server (<img class="intext" src="static/images/intext/knowledge.png">). The details of our automated stealing algorithm are thoroughly laid out in <a href="https://files.sri.inf.ethz.ch/website/papers/jovanovic2024watermarkstealing.pdf">our paper</a>.
             <li> After paying this one-time cost the attacker effectively reverse-engineered the watermark, and can now mount arbitrarily many realistic <span class="devilish">spoofing and scrubbing attacks</span> with no manual effort, which destroys the practical value of the watermark.
           </ul>
           </p>
@@ -179,9 +179,9 @@
           <p>
           <ul>
             <li> In a realistic <span class="devilish">spoofing attack</span> the attacker generates high-quality text on arbitrary topics, which is confidently detected as <span class="green">watermarked</span> by the detector. This should be impossible for parties that do not know the secret key.
-            <li> A <span class="devilish">spoofing attack</span> applied at scale discredits the watermark, as the server is unable to distinguish between truly watermarked and spoofed texts. Further, releasing harmful/toxic texts that are falsely attributed to a specific LLM provider at scale can lead to severe reputational damage.
+            <li> A <span class="devilish">spoofing attack</span> applied at scale discredits the watermark, as the server is unable to distinguish between truly watermarked and spoofed texts. Further, releasing harmful/toxic texts that are falsely attributed to a specific LLM provider at scale can lead to reputational damage.
             <li> We demonstrate reliable spoofing of a state-of-the-art scheme <span class="textsc">KGW2-SelfHash</span>, previously thought to be safe. Our attacker combines the previously built approximate model of watermark rules (<img class="intext" src="static/images/intext/knowledge_full.png">) with an open-source LLM, to produce high-quality texts that are detected as <span class="green">watermarked</span> with <b>over 80% success rate</b>. This works equally well when producing harmful texts, even when the original model is well aligned to refuse any harmful prompts.
-            <li> We show some examples below, and in our <a style="color: #3273dc;" href="https://files.sri.inf.ethz.ch/website/papers/jovanovic2024watermarkstealing.pdf">rigorous evaluation</a> demonstrate similar success across several other schemes, study how our attack scales with query cost, and show success in the setting where the attacker paraphrases existing (<span class="red">non-watermarked</span>) text.
+            <li> We show some <a style="color: #3273dc;" href="#examples">examples</a> below, and in our <a style="color: #3273dc;" href="https://files.sri.inf.ethz.ch/website/papers/jovanovic2024watermarkstealing.pdf">experiments</a> demonstrate similar success across several other schemes, study how our attack scales with query cost, and show success in the setting where the attacker paraphrases existing (<span class="red">non-watermarked</span>) text.
           </ul>
           </p>
         </div>
@@ -202,7 +202,7 @@
           <ul>
             <li> In a <span class="devilish">scrubbing attack</span> the attacker removes the watermark, i.e. tweaks the <span class="green">watermarked</span> server response in a quality-preserving way, such that the resulting text is <span class="red">non-watermarked</span>. If scrubbing is viable, misuse of powerful LLMs can be concealed, making it impossible to detect malicious use cases such as plagiarism or automated spamming and disinformation campaigns.
             <li> Researchers have studied the threat of <span class="devilish">scrubbing attacks</span> before, concluding that current state-of-the-art schemes are robust to this threat for sufficiently long texts. 
-            <li> We challenge that conclusion. Our watermark stealing attacker can apply its partial knowledge of the watermark rules (<img class="intext" src="static/images/intext/knowledge_full.png">) to significantly boost the success rate of scrubbing on long texts with no need for additional queries to the server. Notably, we boost scrubbing success <b>from 1% to 85%</b> for the <span class="textsc">KGW2-SelfHash</span> scheme. Similar results are obtained for several other schemes, as we show in our experimental evaluation in <a style="color: #3273dc;" href="https://files.sri.inf.ethz.ch/website/papers/jovanovic2024watermarkstealing.pdf">the paper</a>. Below, we also provide several examples.
+            <li> We challenge that conclusion. Our watermark stealing attacker can apply its partial knowledge of the watermark rules (<img class="intext" src="static/images/intext/knowledge_full.png">) to significantly boost the success rate of scrubbing on long texts with no need for additional queries to the server. Notably, we boost scrubbing success <b>from 1% to 85%</b> for the <span class="textsc">KGW2-SelfHash</span> scheme. Similar results are obtained for several other schemes, as we show in our experimental evaluation in <a style="color: #3273dc;" href="https://files.sri.inf.ethz.ch/website/papers/jovanovic2024watermarkstealing.pdf">the paper</a>. Below, we also show several <a style="color: #3273dc;" href="#examples">examples</a>.
             <li> Our results challenge the common belief that robustness to <span class="devilish">spoofing attacks</span> and <span class="devilish">scrubbing attacks</span> are at odds for current schemes. On the contrary, we demonstrate that any vulnerability to watermark stealing enables <span class="devilish">both attacks</span> at levels much higher than previously thought.
           </ul>
           </p>
@@ -238,7 +238,8 @@
         <h2 class="title is-3" id="examples">Examples</h2>
         <div class="content has-text-centered has-text-justified">
           Below are examples of attacks mounted by our watermark stealing attacker, copied from our experimental evaluation (all examples here use <span class="textsc">KGW2-SelfHash</span>, see other experimental details in <a style="color: #3273dc;" href="https://files.sri.inf.ethz.ch/website/papers/jovanovic2024watermarkstealing.pdf">the paper</a>).         
-          Pick an example to see the corresponding texts. Enabling the <b>watermark detector perspective</b> reveals the color of each token and the final prediction of the detector, i.e., if some text is detected as watermarked or not.
+          <br><br>
+          Pick an example to see the corresponding texts. Enabling the <b>watermark detector perspective</b> reveals the color of each token and the prediction of the detector, i.e., if some text is detected as watermarked or not.
         </div>
           <div class="example-buttons">
             <button class="phd button active">🧑‍🎓 PhD Advice</button>
@@ -247,9 +248,11 @@
             <button class="memory button">🧬 Other Memory</button>
           </div>
           <br>
+          <div>         
           <div class="field">
             <input id="detectorMode" type="checkbox" name="detectorMode" class="switch">
             <label for="detectorMode">Watermark Detector perspective&nbsp;<img class="intext" src="static/images/intext/water.png"></label>
+          </div>
           </div>
         <div class="example-box has-text-justified">
         <br>
@@ -344,13 +347,13 @@
                 <!-- JS -->
               </div>
               <div class="chat-detector has-text-centered">
-                NO WATERMARK (p=0.52) <img class="emoji-label" src="static/images/intext/water.png">
+                NO WATERMARK (p=0.32) <img class="emoji-label" src="static/images/intext/water.png">
               </div>
             </div>
           </div>
 
           <div class="example example-memory">
-            This is another example of a <span class="devilish">scrubbing attack</span>, on another prompt from the <span class="textsc">RedditWritingPrompts</span> dataset. As in the previous example, by using the knowledge obtained by watermark stealing, the malicious user can remove the watermark and hide that a powerful LLM was used to write the story. 
+            This is another example of a <span class="devilish">scrubbing attack</span>, on a different prompt from the <span class="textsc">RedditWritingPrompts</span> dataset. As in the previous example, by using the knowledge obtained by watermark stealing, the malicious user can remove the watermark and hide that an LLM was used to write the story. 
             <div class="chat-container right">
               <div class="chat-header">
                 Prompt
@@ -381,7 +384,7 @@
                 <!-- JS -->
               </div>
               <div class="chat-detector has-text-centered">
-                WATERMARKED (p=3.705e-25) <img class="emoji-label" src="static/images/intext/water.png">
+                WATERMARKED (p=3.7e-25) <img class="emoji-label" src="static/images/intext/water.png">
               </div>
             </div>
 
@@ -394,7 +397,7 @@
                 <!-- JS -->
               </div>
               <div class="chat-detector has-text-centered">
-                NO WATERMARK (p=0.97) <img class="emoji-label" src="static/images/intext/water.png">
+                NO WATERMARK (p=0.17) <img class="emoji-label" src="static/images/intext/water.png">
               </div>
             </div>
           </div>
@@ -431,10 +434,13 @@
   </div>
 </section> -->
 
-<section class="section" id="BibTeX">
+<section class="section hero is-light">
     <div class="container is-max-desktop content">
       <h2 class="title is-5">Citation</h2>
-      <pre><code>@article{jovanovic2024watermarkstealing,
+      <div class="columns is-centered">
+        <button class="button is-small" onclick="copyBibtex()">📋 Copy to clipboard</button>
+      </div>
+      <pre id="BibTeX"><code id="bibtex-code">@article{jovanovic2024watermarkstealing,
   title = {Watermark Stealing in Large Language Models},
   author = {Jovanović, Nikola and Staab, Robin and Vechev, Martin},
   year = {2024},

@@ -19,6 +19,11 @@ $(function(){
 	})
 })
 
+function copyBibtex() {
+	var copyText = document.getElementById("bibtex-code");
+	navigator.clipboard.writeText(copyText.innerHTML);
+}
+
 
 window.addEventListener('load', function() {
 	function selectExample() {
@@ -30,7 +35,7 @@ window.addEventListener('load', function() {
 		example.classList.add('active')
 		updateDetector.call(document.querySelector("#detectorMode"))
 	}
-	document.querySelectorAll("button").forEach(e => e.addEventListener('click', selectExample))
+	document.querySelectorAll(".example-buttons > button").forEach(e => e.addEventListener('click', selectExample))
 
 	function updateDetector() {
 		bodies=document.querySelectorAll(".example.active")[0].querySelectorAll(".chat-body")
