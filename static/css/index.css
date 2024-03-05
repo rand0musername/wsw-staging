@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap')
+
 body {
   font-family: 'Noto Sans', sans-serif;
 }
@@ -181,4 +183,108 @@ body {
 .devilish {
   color: #aa8dd8;
   font-weight: bold;
+}
+
+.textsc {
+  font-variant-caps: small-caps;
+}
+
+.example-buttons {
+  display: block;
+  margin: auto;
+}
+
+button.active {
+  background-color: #bbacd3;
+}
+
+.example-box {
+}
+
+.example {
+  display: none;
+}
+
+.example.active {
+  display: block;
+}
+
+.chat-container {
+  width: 90%;
+  margin: 20px auto;
+  background-color: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.chat-container.prompt {
+  margin-right: auto;
+}
+
+.chat-header {
+  background-color: #4b4b4b;
+  color: #fff;
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.chat-body {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  font-family: 'Courier', sans-serif;
+}
+
+.chat-detector {
+  background-color: #0a2f48;
+  color: #fff;
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.emoji-label {
+  height: 1.1em;
+  margin-bottom: -0.2em;
+}
+
+#detectorMode {
+  background-color: #5dadec;
+}
+
+.switch[type=checkbox]+label {
+  padding-top: 0;
+}
+
+.chat-red1.active {
+  color: #880000;
+}
+.chat-red2.active {
+  color: #FF0000;
+}
+.chat-green1.active {
+  color: #008000;
+}
+.chat-green2.active {
+  color: #03ad55;
+}
+.chat-black1.active {
+  color: #000000;
+}
+.chat-black2.active {
+  color: #777777;
+}
+
+.chat-detector {
+  display: none;
+}
+
+.chat-detector.active {
+  display: block;
+  font-family: "Didact Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
